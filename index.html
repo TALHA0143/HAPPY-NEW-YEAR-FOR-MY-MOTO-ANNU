@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2026 - Kainat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a2a 0%, #1a0b3a 50%, #0d1a3a 100%);
+            color: white;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .bg-particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 100;
+            background: rgba(30, 15, 50, 0.92);
+            padding: 40px;
+            border-radius: 25px;
+            max-width: 550px;
+            text-align: center;
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #ff3366, #ff9933, #33ff33, #3399ff, #cc33ff, #ffcc00) 1;
+            box-shadow: 
+                0 0 60px rgba(255, 50, 150, 0.5),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+            animation: containerGlow 4s infinite alternate;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes containerGlow {
+            0% { 
+                box-shadow: 0 0 60px rgba(255, 50, 150, 0.5),
+                          inset 0 0 30px rgba(255, 255, 255, 0.1);
+                border-image: linear-gradient(45deg, #ff3366, #ff9933, #33ff33, #3399ff, #cc33ff) 1;
+            }
+            50% { 
+                box-shadow: 0 0 70px rgba(50, 150, 255, 0.6),
+                          inset 0 0 40px rgba(255, 255, 255, 0.15);
+                border-image: linear-gradient(45deg, #33ff33, #3399ff, #cc33ff, #ff3366, #ff9933) 1;
+            }
+            100% { 
+                box-shadow: 0 0 60px rgba(255, 255, 50, 0.5),
+                          inset 0 0 30px rgba(255, 255, 255, 0.1);
+                border-image: linear-gradient(45deg, #ffcc00, #ff3366, #ff9933, #33ff33, #3399ff) 1;
+            }
+        }
+
+        /* Title */
+        .title {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, 
+                #ff3366 0%, 
+                #ff9933 25%, 
+                #33ff33 50%, 
+                #3399ff 75%, 
+                #cc33ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .title::before, .title::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ffcc00;
+            font-size: 2rem;
+            animation: spin 4s infinite linear;
+        }
+
+        .title::before {
+            left: -40px;
+        }
+
+        .title::after {
+            right: -40px;
+        }
+
+        @keyframes spin {
+            0% { transform: translateY(-50%) rotate(0deg); }
+            100% { transform: translateY(-50%) rotate(360deg); }
+        }
+
+        /* Year */
+        .year-container {
+            position: relative;
+            margin: 25px 0;
+            display: inline-block;
+        }
+
+        .year {
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffcc00;
+            text-shadow: 
+                0 0 20px #ff6600,
+                0 0 40px #ff3300,
+                0 0 60px #ff0066;
+            animation: yearGlow 2s infinite alternate, yearFloat 3s infinite ease-in-out;
+            position: relative;
+            z-index: 2;
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        @keyframes yearGlow {
+            0% { 
+                text-shadow: 0 0 20px #ff6600,
+                           0 0 40px #ff3300,
+                           0 0 60px #ff0066;
+            }
+            100% { 
+                text-shadow: 0 0 25px #ffcc00,
+                           0 0 50px #ff9900,
+                           0 0 75px #ff0066;
+            }
+        }
+
+        @keyframes yearFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .year-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 6rem;
+            opacity: 0.15;
+            color: white;
+            z-index: 1;
+            font-weight: bold;
+        }
+
+        /* Names */
+        .names {
+            font-size: 2rem;
+            margin: 30px 0;
+            color: #ff99cc;
+            position: relative;
+            padding: 15px;
+        }
+
+        .kainat {
+            color: #ff3366;
+            font-weight: bold;
+            text-shadow: 
+                0 0 15px #ff0066,
+                0 0 30px rgba(255, 0, 102, 0.5);
+            animation: namePulse 2s infinite alternate;
+            display: inline-block;
+            padding: 0 10px;
+            position: relative;
+        }
+
+        .kainat::before, .kainat::after {
+            content: '❤️';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            animation: heartbeat 1.2s infinite;
+        }
+
+        .kainat::before {
+            left: -25px;
+        }
+
+        .kainat::after {
+            right: -25px;
+        }
+
+        @keyframes namePulse {
+            0% { 
+                transform: scale(1);
+                text-shadow: 0 0 15px #ff0066,
+                           0 0 30px rgba(255, 0, 102, 0.5);
+            }
+            100% { 
+                transform: scale(1.05);
+                text-shadow: 0 0 20px #ff6699,
+                           0 0 40px rgba(255, 0, 102, 0.7);
+            }
+        }
+
+        /* Message */
+        .message {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(145deg, 
+                rgba(255, 51, 102, 0.1) 0%,
+                rgba(51, 153, 255, 0.1) 100%);
+            border-radius: 15px;
+            border-left: 4px solid #ff3366;
+            border-right: 4px solid #33ccff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff3366, #ff9933, #33ff33, #3399ff);
+            animation: messageLine 3s infinite linear;
+        }
+
+        @keyframes messageLine {
+            0% { background-position: -200px 0; }
+            100% { background-position: 200px 0; }
+        }
+
+        /* UPDATED: Wished By in One Line */
+        .wished-by-line {
+            margin-top: 30px;
+            font-size: 2rem;
+            color: #66ff99;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+            flex-wrap: wrap;
+        }
+
+        .wished-by-text {
+            background: linear-gradient(90deg, 
+                #ff3366 0%, 
+                #ff9933 25%, 
+                #33ff33 50%, 
+                #3399ff 75%, 
+                #cc33ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(255,255,255,0.2);
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .talha-name {
+            color: #ffcc00;
+            font-weight: bold;
+            padding: 6px 18px;
+            background: rgba(255, 204, 0, 0.15);
+            border-radius: 10px;
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+            animation: nameGlow 2s infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .talha-name::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes nameGlow {
+            0% { 
+                box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+            }
+            100% { 
+                box-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
+            }
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20%, 100% { left: 100%; }
+        }
+
+        /* Hearts */
+        .heart {
+            color: #ff3366;
+            animation: heartbeat 1.2s infinite;
+            display: inline-block;
+            text-shadow: 0 0 10px #ff0066;
+            margin-left: 8px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1.1); }
+            75% { transform: scale(1.15); }
+        }
+
+        /* Fireworks */
+        #fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 25px;
+            }
+            .title { font-size: 2.5rem; }
+            .title::before, .title::after { display: none; }
+            .year { font-size: 4rem; }
+            .year-bg { font-size: 4.5rem; }
+            .names { font-size: 1.6rem; }
+            .kainat::before, .kainat::after { font-size: 1.2rem; }
+            .message { font-size: 1rem; padding: 20px; }
+            .wished-by-line { 
+                font-size: 1.7rem; 
+                gap: 8px;
+            }
+            .talha-name { 
+                font-size: 1.8rem; 
+                padding: 5px 15px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation" id="bgAnimation"></div>
+    
+    <!-- Fireworks Container -->
+    <div id="fireworks"></div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <h1 class="title">Happy New Year</h1>
+        
+        <div class="year-container">
+            <div class="year-bg">2026</div>
+            <div class="year">2026</div>
+        </div>
+        
+        <div class="names">
+            For My Beautiful <span class="kainat">Kainat</span>
+        </div>
+        
+        <div class="message">
+            Wishing you a year filled with love, laughter, and beautiful moments. 
+            May 2026 bring you endless happiness, success, and all your dreams come true.
+            You're my universe, my everything.
+        </div>
+        
+        <!-- UPDATED: Wished By in One Line -->
+        <div class="wished-by-line">
+            <span class="wished-by-text">Wished By</span>
+            <span class="talha-name">Talha</span>
+            <span class="heart">💖</span>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced Background Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgAnimation = document.getElementById('bgAnimation');
+            
+            // Create floating particles
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'bg-particle';
+                
+                const size = Math.random() * 10 + 2;
+                const x = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = 15 + Math.random() * 10;
+                
+                particle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}%;
+                    animation-delay: ${delay}s;
+                    animation-duration: ${duration}s;
+                    background: rgba(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255}, 0.1);
+                `;
+                
+                bgAnimation.appendChild(particle);
+            }
+            
+            // Enhanced Fireworks
+            const fireworksContainer = document.getElementById('fireworks');
+            const colors = ['#ff3366', '#ff9933', '#33ff33', '#3399ff', '#cc33ff', '#ffcc00', '#ff66cc', '#00ffff'];
+            
+            let activeFireworks = 0;
+            const maxFireworks = 12; // Reduced for performance
+            
+            function createFirework() {
+                if (activeFireworks >= maxFireworks) return;
+                
+                activeFireworks++;
+                
+                // Create main firework
+                const firework = document.createElement('div');
+                firework.style.cssText = `
+                    position: absolute;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: ${colors[Math.floor(Math.random() * colors.length)]};
+                    box-shadow: 0 0 15px currentColor;
+                    left: ${Math.random() * 90 + 5}vw;
+                    top: ${Math.random() * 90 + 5}vh;
+                    opacity: 0;
+                    z-index: 50;
+                    transition: all 0.5s ease-out;
+                `;
+                
+                fireworksContainer.appendChild(firework);
+                
+                // Launch animation
+                setTimeout(() => {
+                    firework.style.opacity = '1';
+                    firework.style.transform = 'translateY(-30px) scale(1.5)';
+                    
+                    // Explode
+                    setTimeout(() => {
+                        createExplosion(firework);
+                    }, 500);
+                }, 10);
+                
+                // Cleanup
+                setTimeout(() => {
+                    if (firework.parentNode) {
+                        firework.remove();
+                    }
+                    activeFireworks--;
+                }, 1500);
+            }
+            
+            function createExplosion(firework) {
+                const rect = firework.getBoundingClientRect();
+                const x = (rect.left + rect.width/2) / window.innerWidth * 100;
+                const y = (rect.top + rect.height/2) / window.innerHeight * 100;
+                const color = firework.style.backgroundColor;
+                
+                firework.style.opacity = '0';
+                
+                // Create explosion particles
+                const particleCount = 10; // Reduced for performance
+                const particles = [];
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.cssText = `
+                        position: absolute;
+                        width: 4px;
+                        height: 4px;
+                        border-radius: 50%;
+                        background: ${color};
+                        box-shadow: 0 0 10px ${color};
+                        left: ${x}vw;
+                        top: ${y}vh;
+                        opacity: 0.9;
+                        z-index: 50;
+                    `;
+                    
+                    fireworksContainer.appendChild(particle);
+                    particles.push(particle);
+                    
+                    // Animate particle
+                    setTimeout(() => {
+                        const angle = (Math.PI * 2 * i) / particleCount;
+                        const distance = 15 + Math.random() * 20;
+                        
+                        particle.style.transition = 'all 0.8s ease-out';
+                        particle.style.left = `${x + Math.cos(angle) * distance}vw`;
+                        particle.style.top = `${y + Math.sin(angle) * distance}vh`;
+                        particle.style.opacity = '0';
+                        particle.style.transform = 'scale(0.5)';
+                        
+                        // Remove particle
+                        setTimeout(() => {
+                            if (particle.parentNode) {
+                                particle.remove();
+                            }
+                        }, 800);
+                    }, 10);
+                }
+            }
+            
+            // Initial fireworks burst
+            setTimeout(() => {
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(createFirework, i * 200);
+                }
+            }, 500);
+            
+            // Continuous fireworks
+            const fireworksInterval = setInterval(() => {
+                if (Math.random() > 0.4) { // Random timing
+                    createFirework();
+                }
+            }, 600);
+            
+            // Special bursts
+            setInterval(() => {
+                if (Math.random() > 0.5) {
+                    for (let i = 0; i < 3; i++) {
+                        setTimeout(createFirework, i * 150);
+                    }
+                }
+            }, 3000);
+            
+            // Year color rotation
+            const yearElement = document.querySelector('.year');
+            let hue = 0;
+            
+            setInterval(() => {
+                hue = (hue + 2) % 360;
+                yearElement.style.filter = `hue-rotate(${hue}deg)`;
+            }, 200);
+            
+            // Cleanup on page leave
+            window.addEventListener('beforeunload', () => {
+                clearInterval(fireworksInterval);
+            });
+        });
+    </script>
+</body>
+  </html>
